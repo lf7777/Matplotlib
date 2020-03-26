@@ -1,0 +1,207 @@
+Matplotlib
+
+import matplotlib.pyplot as plt
+
+目 录 : 
+
+    一. 折 线 图
+
+    二. 散 点 图
+
+    三. 柱 状 图 
+
+    四. 条 形 图
+
+    五. 饼 图
+
+    六. 直 方 图
+
+    七. 箱 线 图
+
+    八. 热 力 图
+
+    . 图 通 用
+
+    . 其 他 (解决方案等)
+
+
+一. 折 线 图 
+
+    plt.plot(x,y,color='b')
+
+
+二. 散 点 图 
+
+    plt.scatter(x,y)
+
+
+三. 柱 状 图 (竖 柱) 
+
+    plt.bar(x,y)
+
+
+四. 条 形 图 (横 柱)
+
+    plt.barh(x,y)
+
+
+五. 饼 图 
+
+    plt.pie(x,y)
+
+    <1> percent 
+    
+        每块是多少(百分比),默认参数,直接写列表
+
+    <2> labels
+        
+        每块的名称
+
+        labels=['china','russia']
+
+    <3> explode
+
+        突出块
+
+        explode=(0.04,0.04,0.04,0.04)
+
+    <4> autopct
+
+        格式化显示每块的 百分比
+
+    <5> shadow
+
+        阴影效果
+
+        shadow=True
+
+    <6> startangle
+
+        饼图起始的角度,度数,默认0为右侧水平180度开始,逆时针旋转
+
+
+
+六. 直 方 图
+
+    plt.hist(x)
+
+    显 示 分 布 情 况
+
+
+
+七. 箱 线 图 
+
+    plt.boxplot(x)
+
+
+八. 热 力 图
+
+    plt.imshow(ndarray)
+
+    以二维形式展示数据的大小,主要用于数据的重要程度/相关度展示
+
+    <1> 数 据
+
+        默认参数,直接写 ndarray
+
+    <2> cmap
+
+        配 色
+
+        cmap='gray'
+
+    <3> origin
+
+        水平翻转,默认upper
+
+    <4> interpolation
+
+        渲染,模糊
+
+        interpolation='lanczos'
+    
+
+
+. 图 通 用 :
+
+
+    <1> 画 布 :
+
+        (1) plt.figure()
+
+            此句要放在指定行列之前
+
+            参 数 : 
+                1. figsize=(10,15) 设置画布大小
+
+        (2) plt.show() 
+
+            展 示 画 布 (不显示内存地址)
+        
+        (3) plt.savefig('Path')
+
+            保 存 画 布
+
+
+    <2> 文 字 角 度 : 
+
+        (1) plt.xticks(rotation=45)
+
+            设置 x 轴 文字的角度
+
+        (2) plt.yticks(rotation=20)
+
+            设置 y 轴 文字的角度
+
+
+    <3> 标 题 :
+
+        (1) plt.title('')
+
+            设 置 图 标 题 
+
+        (2) plt.xlabel('')
+
+            x 轴 标 题
+
+        (3) plt.ylabel('')
+
+            y 轴 标 题 
+
+        (4) plt.legend([''])
+
+            图 例 
+
+
+八. 其 他 :
+
+    
+    <1> %matplotlib inline or notebook
+
+        类似装饰器,写在图前.
+
+        inline 是默认 不可变大小, notebook 可变大小.
+
+
+    <2> 中 文 显 示 :
+
+
+        (1) 临 时 办 法 :
+
+            plt.rcParams['font.sans-serif']=['SimHei'] 用正常中文显示标签
+
+            plt.rcParams['axes.unicode_minus']=False 用来正常显示负号
+
+        (2) 永 久 办 法 :
+
+            1. 找 到 文 件 路 径 :
+
+                import matplotlib as m
+
+                print(a.matplotlib_fname())
+
+            2. 编辑文件,打开 font.family 和 font.sans-serif
+
+            3. 在 font.sans-serif 添加想用的字体
+
+        (3) 如还是不行 chrome 浏览器有保存另一种办法
